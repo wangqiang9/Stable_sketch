@@ -184,7 +184,7 @@ def train(save_path, dl, epochs=1000):
                 cond_grad = -torch.autograd.grad(loss, latents)[0]
 
                 # Modify the latents based on this gradient
-                # latents = latents.detach() + cond_grad * sigma ** 2
+                latents = latents.detach() + cond_grad * sigma ** 2
                 latents = latents.detach()
 
                 ### And saving as before ###
